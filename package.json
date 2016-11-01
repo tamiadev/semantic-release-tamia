@@ -14,5 +14,10 @@
   },
   "devDependencies": {
     "semantic-release": "^4.3.5"
+  },
+  "release": {
+    "analyzeCommits": "./scripts/commit-analyzer.js",
+    "generateNotes": "./scripts/release-notes-generator.js",
+    "verifyRelease": "./scripts/semantic-release-require-changelog.js"
   }
 }
