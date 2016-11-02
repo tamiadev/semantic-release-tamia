@@ -44,7 +44,3 @@ module.exports = (pluginConfig, config, cb) => {
 		;
 	});
 }
-
-module.exports(() => {
-	console.log('done')
-})
