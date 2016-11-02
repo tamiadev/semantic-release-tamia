@@ -1,4 +1,5 @@
 const SRError = require('@semantic-release/error');
+const isChangelog = require('./util').isChangelog;
 
 module.exports = (pluginConfig, config, cb) => {
 	const type = config.nextRelease.type;
@@ -9,10 +10,10 @@ module.exports = (pluginConfig, config, cb) => {
 		return;
 	}
 
-	const lastCommit = commits[0];
+	const lastCommit = commits[0].message;
 
 	// Publish MAJOR or MINOR only when the latest commit is a changelog commit
-	if (lastCommit.message.startsWith('Changelog:')) {
+	if (isChangelog(lastCommit)) {
 		cb(null);
 		return;
 	}
