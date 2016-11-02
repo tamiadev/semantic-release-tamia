@@ -25,7 +25,7 @@ module.exports = (pluginConfig, config, cb) => {
 
 					// Last commit is a changelog commit
 					if (isChangelog(lastCommit)) {
-						cb(removeHeader(lastCommit));
+						cb(null, true, removeHeader(lastCommit));
 						return;
 					}
 
@@ -35,7 +35,7 @@ module.exports = (pluginConfig, config, cb) => {
 						.filter(isFix)
 						.map(highlightTag)
 					;
-					cb(asList(fixes));
+					cb(null, true, asList(fixes));
 				},
 				err => {
 					cb(new SRError(`Cannot get commits list: ${err}`));
