@@ -3,7 +3,7 @@
   "description": "Should I use semantic-release?",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "true",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Artem Sapegin <artem@sapegin.ru> (http://sapegin.me/)",
