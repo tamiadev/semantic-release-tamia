@@ -18,7 +18,7 @@ module.exports = (pluginConfig, config, cb) => {
 	}
 
 	cb(new SRError(
-		`No changelog commit for this ${type} release found and therefore a new version won’t be published:` +
+		`No changelog commit for this ${type} release found and therefore a new version won’t be published:\n` +
 		`To make a realease add a commit with a "Changelog:" tag and release notes in its body.`
 	));
 };
