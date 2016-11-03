@@ -4,8 +4,6 @@ const commitsBetween = require('commits-between');
 const indent = require('indent');
 const isChangelog = require('./util').isChangelog;
 
-const removeHeader = text => text.substring(text.indexOf('\n') + 1).trim();
-
 const isFix = commit => commit.startsWith('Fix:');
 
 const highlightTag = text => text.replace(/^Fix:/, '**Fixed:**');
@@ -24,13 +22,12 @@ module.exports = (pluginConfig, config, cb) => {
 		commitsBetween({ from: tag })
 			.then(
 				commits => {
-					const lastCommit = commits[0].subject;
+					const lastCommit = commits[0];
 
 					// Last commit is a changelog commit
-					if (isChangelog(lastCommit)) {
+					if (isChangelog(lastCommit.subject)) {
 						console.log('MAJOR/MINOR commit', lastCommit);
-						console.log('MAJOR/MINOR release', removeHeader(lastCommit));
-						cb(null, removeHeader(lastCommit));
+						cb(null, lastCommit.body);
 						return;
 					}
 
