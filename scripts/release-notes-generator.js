@@ -28,6 +28,8 @@ module.exports = (pluginConfig, config, cb) => {
 
 					// Last commit is a changelog commit
 					if (isChangelog(lastCommit)) {
+						console.log('MAJOR/MINOR commit', lastCommit);
+						console.log('MAJOR/MINOR release', removeHeader(lastCommit));
 						cb(null, removeHeader(lastCommit));
 						return;
 					}
