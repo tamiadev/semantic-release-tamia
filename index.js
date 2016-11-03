@@ -1,1 +1,1 @@
-alert('Hello world :-)');
+alert('Buy world :-(');
