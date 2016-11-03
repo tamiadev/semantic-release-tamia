@@ -26,7 +26,6 @@ module.exports = (pluginConfig, config, cb) => {
 
 					// Last commit is a changelog commit
 					if (isChangelog(lastCommit.subject)) {
-						console.log('MAJOR/MINOR commit', lastCommit);
 						cb(null, lastCommit.body);
 						return;
 					}
