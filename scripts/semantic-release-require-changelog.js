@@ -3,14 +3,13 @@ const isChangelog = require('./util').isChangelog;
 
 module.exports = (pluginConfig, config, cb) => {
 	const type = config.nextRelease.type;
+	const lastCommit = config.commits[0].message;
 
 	// Publish PATCH or initial release automatically
 	if (type === 'patch' || type === 'initial') {
 		cb(null);
 		return;
 	}
-
-	const lastCommit = commits[0].message;
 
 	// Publish MAJOR or MINOR only when the latest commit is a changelog commit
 	if (isChangelog(lastCommit)) {
