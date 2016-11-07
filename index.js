@@ -1,1 +1,1 @@
-alert('Buy world :-(');
+alert('Buy world :–(');
