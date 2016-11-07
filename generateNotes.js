@@ -4,7 +4,7 @@ const SRError = require('@semantic-release/error');
 const gitLatestSemverTag = require('git-latest-semver-tag');
 const commitsBetween = require('commits-between');
 const indent = require('indent');
-const isChangelog = require('./util').isChangelog;
+const isChangelog = require('./lib/util').isChangelog;
 
 const isFix = commit => commit.startsWith('Fix:');
 

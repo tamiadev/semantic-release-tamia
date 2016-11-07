@@ -1,7 +1,7 @@
 'use strict';
 
 const SRError = require('@semantic-release/error');
-const isChangelog = require('./util').isChangelog;
+const isChangelog = require('./lib/util').isChangelog;
 
 module.exports = (pluginConfig, config, cb) => {
 	const type = config.nextRelease.type;
