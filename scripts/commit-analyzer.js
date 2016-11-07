@@ -1,24 +1,32 @@
 'use strict';
 
-const parseRawCommit = require('conventional-changelog/lib/git').parseRawCommit;
+const conventionalCommitsParser = require('conventional-commits-parser');
+
+const BREAKING_MARKER = 'BREAKING CHANGE';
+const TYPE_FEATURE = 'Feat';
+const TYPE_FIX = 'Fix';
+
+const is = (a, b) => (a || '').toUpperCase() === (b || '').toUpperCase();
+
+const hasBreakingChanges = commit => commit.notes && !!commit.notes.find(c => c.title === BREAKING_MARKER);
 
 module.exports = (pluginConfig, config, cb) => {
 	let type;
 
 	config.commits
-		.map(commit => parseRawCommit(`${commit.hash}\n${commit.message}`))
+		.map(commit => conventionalCommitsParser.sync(commit.message))
 		.filter(commit => !!commit)
 		.every(commit => {
-			if (commit.breaks.length) {
+			if (hasBreakingChanges(commit)) {
 				type = 'major';
 				return false;
 			}
 
-			if (commit.type === 'Feat') {
+			if (is(commit.type, TYPE_FEATURE)) {
 				type = 'minor';
 			}
 
-			if (!type && commit.type === 'Fix') {
+			if (!type && is(commit.type, TYPE_FIX)) {
 				type = 'patch';
 			}
 
