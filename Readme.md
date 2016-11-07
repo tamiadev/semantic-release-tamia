@@ -1,6 +1,6 @@
 # Tâmia Semantic Release
 
-[![Build Status](https://travis-ci.org/sapegin/semantic-release-demo.svg)](https://travis-ci.org/sapegin/semantic-release-demo)
+[![Build Status](https://travis-ci.org/tamiadev/semantic-release-tamia.svg)](https://travis-ci.org/tamiadev/semantic-release-tamia)
 
 Custom [https://github.com/semantic-release/semantic-release](semantic-release) workflow:
 

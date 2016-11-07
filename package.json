@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sapegin/semantic-release-tamia.git"
+    "url": "https://github.com/tamiadev/semantic-release-tamia.git"
   },
   "dependencies": {
     "@semantic-release/error": "~1.0.0",
