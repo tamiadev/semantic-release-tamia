@@ -1,3 +1,5 @@
+'use strict';
+
 const parseRawCommit = require('conventional-changelog/lib/git').parseRawCommit;
 
 module.exports = (pluginConfig, config, cb) => {

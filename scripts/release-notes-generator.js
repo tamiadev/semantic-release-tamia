@@ -1,3 +1,5 @@
+'use strict';
+
 const SRError = require('@semantic-release/error');
 const gitLatestSemverTag = require('git-latest-semver-tag');
 const commitsBetween = require('commits-between');

@@ -1,3 +1,5 @@
+'use strict';
+
 const SRError = require('@semantic-release/error');
 const isChangelog = require('./util').isChangelog;
 
