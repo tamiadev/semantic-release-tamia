@@ -54,14 +54,14 @@ or in case of multiple issues:
 * `Fix: Do not render empty component list`
 * `Docs: Document subsections, add better examples`
 * `Chore: Update deps`
-*
-	```
-	Feat: Awesome new feature
 
-	Short description of a feature.
+```
+Feat: Awesome new feature
 
-	BREAKING CHANGE: Awesome old feature was removed, use awesome new feature instead.
-	```
+Short description of a feature.
+
+BREAKING CHANGE: Awesome old feature was removed, use awesome new feature instead.
+```
 
 ---
 
