@@ -2,11 +2,14 @@
 
 [![Build Status](https://travis-ci.org/tamiadev/semantic-release-tamia.svg)](https://travis-ci.org/tamiadev/semantic-release-tamia)
 
-Custom [https://github.com/semantic-release/semantic-release](semantic-release) workflow:
+Custom [semantic-release](https://github.com/semantic-release/semantic-release) workflow:
 
 * Fully automated PATCH releases.
 * MINOR and MAJOR releases requre changelog.
-* Custom commit convention.
+* [Custom commit convention](./Convention.md).
+* [Release draft generator](https://github.com/sapegin/dotfiles/blob/master/bin/sr-changelog).
+
+Read more in my article [Automate npm releases with semantic-release and human-written change logs](https://medium.com/@sapegin/automate-npm-releases-with-semantic-release-and-human-written-change-logs-2adb1dce487#.b2w7c0zb2).
 
 ## Installation
 
