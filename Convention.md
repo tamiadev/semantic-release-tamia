@@ -3,12 +3,14 @@
 ## Format of the commit message
 
 ```
-<type>: <subject>
+<type>(<scope>): <subject>
 <BLANK LINE>
 <body>
 <BLANK LINE>
 <footer>
 ```
+
+Only **type** and **subject** are required.
 
 ## Types
 
@@ -20,6 +22,10 @@
 * **Test** — missing tests;
 * **Chore** — maintenance: update dependencies, build, etc.;
 * **Changelog** — changelog for MINOR and MAJOR release.
+
+## Scope
+
+Scope can be anything specifying place of the commit change. For example $location, $browser, $compile, $rootScope, ngHref, ngClick, ngView, etc...
 
 ## Subject
 
