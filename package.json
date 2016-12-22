@@ -1,6 +1,7 @@
 {
   "name": "semantic-release-tamia",
   "description": "Custom scripts for semantic-release",
+  "version": "0.0.0-development",
   "scripts": {
     "test": "true",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
