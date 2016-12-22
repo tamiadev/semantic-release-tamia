@@ -30,3 +30,21 @@ Add to your `package.json`:
   "verifyRelease": "semantic-release-tamia/verifyRelease"
 }
 ```
+
+## Release process
+
+To release a new version, you'll need to create a commit with `Changelog` type. To simplify the creation of it, add to your `package.json` `scripts` section:
+
+```json
+"scripts" {
+  "changelog:preview": "sr-changelog",
+  "changelog:commit": "sr-changelog commit"
+}
+```
+
+To generate changelog draft run `npm run changelog:preview`. It will create a file with all important commits for the release grouped by type (breaking changes, new features and bugfixes) and open it in your default editor.
+
+Now you can rewrite your changelog to make it valuable for your users.
+
+To commit changelog run `npm run changelog:commit`. It will make a commit without changes (git commit --allow-empty) of type Changelog and changelog in commit message body.
+
