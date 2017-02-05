@@ -1,5 +1,6 @@
 # Tâmia Semantic Release
 
+[![npm](https://img.shields.io/npm/v/semantic-release-tamia.svg)](https://www.npmjs.com/package/semantic-release-tamia)
 [![Build Status](https://travis-ci.org/tamiadev/semantic-release-tamia.svg)](https://travis-ci.org/tamiadev/semantic-release-tamia)
 
 Custom [semantic-release](https://github.com/semantic-release/semantic-release) workflow:
