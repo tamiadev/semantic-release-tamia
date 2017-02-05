@@ -15,8 +15,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const exec = require('child_process').exec;
 const opn = require('opn');
-const git = require('git-lib');
+const shellEscape = require('shell-escape');
 const gitLatestSemverTag = require('git-latest-semver-tag');
 const commitsBetween = require('commits-between');
 const conventionalCommitsParser = require('conventional-commits-parser');
@@ -164,10 +165,20 @@ function commitChangelog() {
   console.log('Commiting changelog...');
 
   const changelog = fs.readFileSync(CHANGELOG_FILE, 'utf8');
-  git.commit(`${TYPE_CHANGELOG}: 🚀\n\n${changelog}`, '--allow-empty')
-  console.log('Done.');
-  console.log('');
-  console.log('Don’t forget to push!');
+  gitCommit(`${TYPE_CHANGELOG}: 🚀`, changelog, '--allow-empty', err => {
+		if (err) {
+			console.log('Cannot commit', err);
+			return;
+		}
+
+		console.log('Done.');
+		console.log('');
+		console.log('Don’t forget to push!');
+	});
+}
+
+function gitCommit(head, body, options, callback) {
+	exec('git commit ' + shellEscape([options, '-m', `${head}\n\n${body}`]), callback);
 }
 
 const command = process.argv[2];
