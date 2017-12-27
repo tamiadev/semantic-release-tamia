@@ -4,7 +4,7 @@
   "version": "0.0.0-development",
   "scripts": {
     "test": "true && npm run test:jest",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release --analyze-commits ./analyzeCommits --verify-release ./verifyRelease --generate-notes ./generateNotes",
     "test:jest": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -37,10 +37,5 @@
     "analyzeCommits.js",
     "generateNotes.js",
     "verifyRelease.js"
-  ],
-  "release": {
-    "analyzeCommits": "./analyzeCommits",
-    "generateNotes": "./generateNotes",
-    "verifyRelease": "./verifyRelease"
-  }
+  ]
 }
