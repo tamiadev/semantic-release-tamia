@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generate list of fixes 1`] = `
+"* **Fixed:** Very cool commit
+* **Fixed:**: Another cool commit"
+`;
+
+exports[`Return commit body for change log commits 1`] = `"My amazing changelog"`;

@@ -1,20 +1,20 @@
-'use strict';
+const conventionalCommitsParser = require('conventional-commits-parser').sync;
+const parserOpts = require('./lib/parser-opts');
 
-const conventionalCommitsParser = require('conventional-commits-parser');
-
-const BREAKING_MARKER = 'BREAKING CHANGE';
 const TYPE_FEATURE = 'Feat';
 const TYPE_FIX = 'Fix';
 
 const is = (a, b) => (a || '').toUpperCase() === (b || '').toUpperCase();
 
-const hasBreakingChanges = commit => commit.notes && !!commit.notes.find(c => c.title === BREAKING_MARKER);
+const hasBreakingChanges = commit =>
+	commit.notes &&
+	!!commit.notes.find(c => parserOpts.noteKeywords.includes(c.title));
 
-module.exports = (pluginConfig, config, cb) => {
+async function analyzeCommits(pluginConfig, config) {
 	let type;
 
 	config.commits
-		.map(commit => conventionalCommitsParser.sync(commit.message))
+		.map(commit => conventionalCommitsParser(commit.message, parserOpts))
 		.filter(commit => !!commit)
 		.every(commit => {
 			if (hasBreakingChanges(commit)) {
@@ -31,8 +31,9 @@ module.exports = (pluginConfig, config, cb) => {
 			}
 
 			return true;
-		})
-	;
+		});
 
-	cb(null, type);
-};
+	return type;
+}
+
+module.exports = analyzeCommits;

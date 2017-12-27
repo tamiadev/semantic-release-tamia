@@ -30,8 +30,9 @@ Scope can be anything specifying place of the commit change. For example $locati
 ## Subject
 
 This is a very short description of the change.
+
 * Use imperative, present tense: “change” not “changed” nor “changes”.
-* *Capitalize* first letter.
+* _Capitalize_ first letter.
 * No dot (.) at the end.
 
 ## Message body

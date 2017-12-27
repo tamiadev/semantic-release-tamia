@@ -1,26 +1,24 @@
-'use strict';
-
 const SRError = require('@semantic-release/error');
-const isChangelog = require('./lib/util').isChangelog;
+const { isChangelog } = require('./lib/util');
 
-module.exports = (pluginConfig, config, cb) => {
-	const type = config.nextRelease.type;
-	const lastCommit = config.commits[0].message;
+async function verifyRelease(pluginConfig, { commits, nextRelease }) {
+	const type = nextRelease.type;
+	const lastCommit = commits[0].message;
 
 	// Publish PATCH or initial release automatically
 	if (type === 'patch' || type === 'initial') {
-		cb(null);
-		return;
+		return null;
 	}
 
 	// Publish MAJOR or MINOR only when the latest commit is a changelog commit
 	if (isChangelog(lastCommit)) {
-		cb(null);
-		return;
+		return null;
 	}
 
-	cb(new SRError(
+	return new SRError(
 		`No changelog commit for this ${type} release found and therefore a new version won’t be published:\n` +
-		`To make a realease add a commit with a "Changelog:" tag and release notes in its body.`
-	));
-};
+			`To make a realease add a commit with a "Changelog:" tag and release notes in its body.`
+	);
+}
+
+module.exports = verifyRelease;

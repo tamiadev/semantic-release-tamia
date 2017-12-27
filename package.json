@@ -3,13 +3,13 @@
   "description": "Custom scripts for semantic-release",
   "version": "0.0.0-development",
   "scripts": {
-    "test": "true",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "changelog:preview": "./bin/generateChangelog.js",
-    "changelog:commit": "./bin/generateChangelog.js commit"
-  },
-  "bin": {
-    "sr-changelog": "./bin/generateChangelog.js"
+    "test": "true && npm run test:jest",
+    "semantic-release": "semantic-release",
+    "test:jest": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "format": "prettier --write '**/*.{js,md}'",
+    "posttest": "npm run format"
   },
   "author": "Artem Sapegin <artem@sapegin.ru> (http://sapegin.me/)",
   "license": "MIT",
@@ -18,17 +18,23 @@
     "url": "https://github.com/tamiadev/semantic-release-tamia.git"
   },
   "dependencies": {
-    "@semantic-release/error": "~1.0.0",
-    "commits-between": "~0.2.0",
-    "conventional-commits-parser": "~1.3.0",
-    "git-latest-semver-tag": "~1.0.2",
+    "@semantic-release/error": "~2.1.0",
+    "conventional-commits-parser": "^2.1.0",
     "indent": "0.0.2",
-    "opn": "~4.0.2",
+    "opn": "~5.1.0",
     "shell-escape": "^0.2.0"
   },
   "devDependencies": {
-    "semantic-release": "~4.3.5"
+    "jest": "^22.0.4",
+    "prettier": "^1.9.2",
+    "semantic-release": "~11.0.2"
   },
+  "files": [
+    "lib",
+    "analyzeCommits.js",
+    "generateNotes.js",
+    "verifyRelease.js"
+  ],
   "release": {
     "analyzeCommits": "./analyzeCommits",
     "generateNotes": "./generateNotes",
