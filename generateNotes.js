@@ -1,4 +1,3 @@
-const SRError = require('@semantic-release/error');
 const indent = require('indent');
 const { isChangelog } = require('./lib/util');
 
