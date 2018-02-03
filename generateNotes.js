@@ -9,20 +9,19 @@ const formatListItem = text => '* ' + indent(text, 2).trim();
 
 const asList = items => items.map(formatListItem).join('\n');
 
+const getBody = commit => commit.split('\n\n').pop();
+
 async function releaseNotesGenerator(pluginConfig, { commits }) {
-	console.log('GGGGGGG', commits);
 	const lastCommit = commits[0];
 
-	throw new Error('xxxx');
-
 	// Last commit is a changelog commit
-	if (isChangelog(lastCommit.subject)) {
-		return lastCommit.body;
+	if (isChangelog(lastCommit.message)) {
+		return getBody(lastCommit.message);
 	}
 
 	// Patch release: just list all fixes
 	const fixes = commits
-		.map(commit => commit.subject)
+		.map(commit => commit.message)
 		.filter(isFix)
 		.map(highlightTag);
 
