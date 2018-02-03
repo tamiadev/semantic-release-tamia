@@ -10,7 +10,10 @@ const formatListItem = text => '* ' + indent(text, 2).trim();
 const asList = items => items.map(formatListItem).join('\n');
 
 async function releaseNotesGenerator(pluginConfig, { commits }) {
+	console.log('GGGGGGG', commits);
 	const lastCommit = commits[0];
+
+	throw new Error('xxxx');
 
 	// Last commit is a changelog commit
 	if (isChangelog(lastCommit.subject)) {
