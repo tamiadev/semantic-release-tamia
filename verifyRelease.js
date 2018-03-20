@@ -1,4 +1,4 @@
-const SRError = require('@semantic-release/error');
+const SemanticReleaseError = require('@semantic-release/error');
 const { isChangelog } = require('./lib/util');
 
 async function verifyRelease(pluginConfig, { commits, nextRelease }) {
@@ -15,7 +15,7 @@ async function verifyRelease(pluginConfig, { commits, nextRelease }) {
 		return null;
 	}
 
-	return new SRError(
+	new SemanticReleaseError(
 		`No changelog commit for this ${type} release found and therefore a new version won’t be published:\n` +
 			`To make a realease add a commit with a "Changelog:" tag and release notes in its body.`
 	);
