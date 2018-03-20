@@ -15,7 +15,7 @@ async function verifyRelease(pluginConfig, { commits, nextRelease }) {
 		return null;
 	}
 
-	new SemanticReleaseError(
+	throw new SemanticReleaseError(
 		`No changelog commit for this ${type} release found and therefore a new version won’t be published:\n` +
 			`To make a realease add a commit with a "Changelog:" tag and release notes in its body.`
 	);
