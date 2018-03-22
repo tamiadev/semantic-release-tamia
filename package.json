@@ -18,11 +18,8 @@
     "url": "https://github.com/tamiadev/semantic-release-tamia.git"
   },
   "dependencies": {
-    "@semantic-release/error": "~2.1.0",
     "conventional-commits-parser": "^2.1.0",
-    "indent": "0.0.2",
-    "opn": "~5.1.0",
-    "shell-escape": "^0.2.0"
+    "indent": "0.0.2"
   },
   "devDependencies": {
     "jest": "^22.0.4",

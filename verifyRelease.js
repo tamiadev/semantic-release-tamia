@@ -1,4 +1,3 @@
-const SemanticReleaseError = require('@semantic-release/error');
 const { isChangelog } = require('./lib/util');
 
 async function verifyRelease(pluginConfig, { commits, nextRelease }) {
