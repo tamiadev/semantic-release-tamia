@@ -6,7 +6,9 @@ cache:
   directories:
     - node_modules
 after_success:
-  - npm run semantic-release
+  # Make release with semantic-release if needed
+  - npm install -g semantic-release travis-deploy-once
+  - travis-deploy-once "semantic-release --analyze-commits ./analyzeCommits --verify-release ./verifyRelease --generate-notes ./generateNotes"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
