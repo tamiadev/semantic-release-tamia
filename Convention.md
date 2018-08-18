@@ -14,14 +14,14 @@ Only **type** and **subject** are required.
 
 ## Types
 
-* **Feat** — new feature;
-* **Fix** — bug fix;
-* **Docs** — documentation;
-* **Style** — formatting, missing semicolons, etc.;
-* **Refactor** — refactoring;
-* **Test** — missing tests;
-* **Chore** — maintenance: update dependencies, build, etc.;
-* **Changelog** — changelog for MINOR and MAJOR release.
+- **Feat** — new feature;
+- **Fix** — bug fix;
+- **Docs** — documentation;
+- **Style** — formatting, missing semicolons, etc.;
+- **Refactor** — refactoring;
+- **Test** — missing tests;
+- **Chore** — maintenance: update dependencies, build, etc.;
+- **Changelog** — changelog for MINOR and MAJOR release.
 
 ## Scope
 
@@ -31,14 +31,14 @@ Scope can be anything specifying place of the commit change. For example $locati
 
 This is a very short description of the change.
 
-* Use imperative, present tense: “change” not “changed” nor “changes”.
-* _Capitalize_ first letter.
-* No dot (.) at the end.
+- Use imperative, present tense: “change” not “changed” nor “changes”.
+- _Capitalize_ first letter.
+- No dot (.) at the end.
 
 ## Message body
 
-* Just as in subject use imperative, present tense: “change” not “changed” nor “changes”.
-* Includes motivation for the change and contrasts with previous behavior.
+- Just as in subject use imperative, present tense: “change” not “changed” nor “changes”.
+- Includes motivation for the change and contrasts with previous behavior.
 
 ## Message footer
 
@@ -58,9 +58,9 @@ or in case of multiple issues:
 
 ## Examples
 
-* `Fix: Do not render empty component list`
-* `Docs: Document subsections, add better examples`
-* `Chore: Update deps`
+- `Fix: Do not render empty component list`
+- `Docs: Document subsections, add better examples`
+- `Chore: Update deps`
 
 ```
 Feat: Awesome new feature

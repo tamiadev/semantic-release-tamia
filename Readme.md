@@ -4,10 +4,10 @@
 
 Custom [semantic-release](https://github.com/semantic-release/semantic-release) workflow:
 
-* Fully automated PATCH releases.
-* MINOR and MAJOR releases require a change log.
-* [Custom commit convention](./Convention.md).
-* [Release draft generator](https://github.com/tamiadev/tamia-changelog).
+- Fully automated PATCH releases.
+- MINOR and MAJOR releases require a change log.
+- [Custom commit convention](./Convention.md).
+- [Release draft generator](https://github.com/tamiadev/tamia-changelog).
 
 Read more in my article [Automate npm releases with semantic-release and human-written change logs](http://blog.sapegin.me/all/semantic-release).
 
