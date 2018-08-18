@@ -8,7 +8,9 @@ const is = (a, b) => (a || '').toUpperCase() === (b || '').toUpperCase();
 
 const hasBreakingChanges = commit =>
 	commit.notes &&
-	!!commit.notes.find(c => parserOpts.noteKeywords.includes(c.title));
+	!!commit.notes.find(c =>
+		parserOpts.noteKeywords.includes(c.title.toUpperCase())
+	);
 
 async function analyzeCommits(pluginConfig, config) {
 	let type;

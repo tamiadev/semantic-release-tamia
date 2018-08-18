@@ -14,26 +14,44 @@ test('Fix -> patch release', async () => {
 	expect(type).toBe('patch');
 });
 
-test('Feat -> minor release', async () => {
+test.each([
+	'Feat(ng-list): Allow custom separator\n' +
+		'bla bla bla\n\n' +
+		'Closes #123\nCloses #25\nFixes #33\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'There are no BREAKING CHANGES in this commmit\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'There are no BREAKING CHANGES: in this commmit\n',
+])('Feat -> minor release', async message => {
 	const commits = [
 		{
-			message:
-				'Feat(ng-list): Allow custom separator\n' +
-				'bla bla bla\n\n' +
-				'Closes #123\nCloses #25\nFixes #33\n',
+			message,
 		},
 	];
 	const type = await analyzeCommits({}, { commits });
 	expect(type).toBe('minor');
 });
 
-test('Breaking changes -> major release', async () => {
+test.each([
+	'Feat(scope): Broadcast $destroy event on scope destruction\n' +
+		'bla bla bla\n\n' +
+		'BREAKING CHANGE:\n\nSome breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'BREAKING CHANGES:\n\nSome breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'BREAKING CHANGES:\nSome breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'BREAKING CHANGE: Some breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'Breaking change: Some breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'Breaking changes: Some breaking change\n',
+	'Feat(scope): Broadcast $destroy event on scope destruction\n\n' +
+		'  BREAKING CHANGE: Some breaking change\n',
+])('Breaking changes -> major release', async message => {
 	const commits = [
 		{
-			message:
-				'Feat(scope): Broadcast $destroy event on scope destruction\n' +
-				'bla bla bla\n\n' +
-				'BREAKING CHANGE:\n\nSome breaking change\n',
+			message,
 		},
 	];
 	const type = await analyzeCommits({}, { commits });
